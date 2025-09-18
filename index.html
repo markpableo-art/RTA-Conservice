@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tool Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #162447;
+            border: 2px solid #5a57a0;
+            padding: 1.5rem 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0;
+            max-width: 90%;
+        }
+        .message-box.show {
+            display: flex;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="selection:bg-[#e0e0e0] selection:text-[#1a1a2e]">
+
+    <!-- Main Content Container (Unified) -->
+    <div class="w-full max-w-4xl p-8 bg-[#162447] rounded-3xl shadow-2xl space-y-12">
+
+        <!-- My Tool Hub Section -->
+        <div class="space-y-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#e0e0e0] text-center tracking-tight">
+                My Tool Hub
+            </h1>
+            <!-- Tools Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+    
+                <!-- Tool Button: Conservice Dashboard -->
+                <button onclick="window.open('https://lookerstudio.google.com/reporting/6a326f21-6063-4516-88c5-f023cedc54c9/page/LCflD', '_blank')" class="tool-button group">
+                    <!-- Icon: Custom Dashboard Image -->
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmA0JL5oRmtbqwMPyOC87BzP_BobgaB1_KMQ&s" alt="Conservice Dashboard Logo" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110" onerror="this.onerror=null; this.src='https://placehold.co/40x40/5a57a0/e0e0e0?text=CD';">
+                    <span class="text-center font-semibold text-lg">Conservice Dashboard</span>
+                </button>
+                
+                <!-- Tool Button: Timer -->
+                <button onclick="showMessage('Timer Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Timer -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">Timer</span>
+                </button>
+                
+                <!-- Tool Button: Notepad -->
+                <button onclick="showMessage('Notepad Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Notes -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14.25v2.25a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 16.5V10.5M16.862 4.487l.213-.214m0 0l-1.687 1.688m1.687-1.688l-1.897 1.897m1.897-1.897L10.582 16.07M18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">Notepad</span>
+                </button>
+                
+                <!-- Tool Button: Calendar -->
+                <button onclick="showMessage('Calendar Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Calendar -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">Calendar</span>
+                </button>
+                
+                <!-- Tool Button: Converter -->
+                <button onclick="showMessage('Unit Converter Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Converter -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h18M16.5 3L21 7.5m0 0L16.5 12M21 7.5H3" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">Converter</span>
+                </button>
+    
+                <!-- Tool Button: Weather -->
+                <button onclick="showMessage('Weather Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Weather -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 10.5a8.25 8.25 0 1114.544 2.24l-3.266 3.268a.75.75 0 00.53.22h.001c.21 0 .41-.082.56-.233l3.268-3.266A8.25 8.25 0 0121 10.5a8.25 8.25 0 01-16.5 0z" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">Weather</span>
+                </button>
+    
+                <!-- Tool Button: Notes -->
+                <button onclick="showMessage('Notes Tool Activated!')" class="tool-button group">
+                    <!-- Icon: Notes -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mb-2 transition-transform duration-300 group-hover:scale-110">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12 17.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                    <span class="text-center font-semibold text-lg">More Tools</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Meet the WFM Team Section -->
+        <div class="space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#e0e0e0] text-center">
+                Meet the WFM Team
+            </h2>
+            
+            <!-- Team Members Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Team Member 1 -->
+                <div class="flex flex-col items-center bg-[#1a1a2e] p-6 rounded-2xl">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjXg6aK3tzk2l76OnK6C9Pu85y5VUSRHoXPcjdKKM89MzD4RhNDX=s240-p-k-rw-no" alt="MJ Omolon" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-bold text-[#e0e0e0]">MJ Omolon</h3>
+                    <p class="text-sm text-gray-400">WFM Manager</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="flex flex-col items-center bg-[#1a1a2e] p-6 rounded-2xl">
+                    <img src="https://placehold.co/120x120/5a57a0/e0e0e0?text=JS" alt="Team Member 2" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-bold text-[#e0e0e0]">Jane Smith</h3>
+                    <p class="text-sm text-gray-400">Scheduler</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="flex flex-col items-center bg-[#1a1a2e] p-6 rounded-2xl">
+                    <img src="https://placehold.co/120x120/5a57a0/e0e0e0?text=AM" alt="Team Member 3" class="w-32 h-32 rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-bold text-[#e0e0e0]">Alex Miller</h3>
+                    <p class="text-sm text-gray-400">Analyst</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reusable Message Box -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText" class="text-xl md:text-2xl font-bold mb-4"></p>
+        <button onclick="hideMessage()" class="px-6 py-2 bg-[#5a57a0] text-white rounded-lg font-semibold hover:bg-[#4a478a] transition-colors">Close</button>
+    </div>
+
+    <script>
+        // Common button styling using Tailwind classes
+        const toolButtons = document.querySelectorAll('.tool-button');
+        toolButtons.forEach(button => {
+            button.classList.add(
+                'flex', 'flex-col', 'items-center', 'justify-center', 'p-6', 'bg-[#1a1a2e]',
+                'rounded-2xl', 'transition-all', 'duration-300', 'hover:bg-[#5a57a0]',
+                'hover:shadow-lg', 'transform', 'hover:-translate-y-2'
+            );
+        });
+
+        // Message Box functionality
+        const messageBox = document.getElementById('messageBox');
+        const messageText = document.getElementById('messageText');
+
+        function showMessage(message) {
+            messageText.textContent = message;
+            messageBox.classList.add('show');
+        }
+
+        function hideMessage() {
+            messageBox.classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
